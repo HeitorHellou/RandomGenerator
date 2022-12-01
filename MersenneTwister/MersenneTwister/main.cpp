@@ -4,10 +4,10 @@
 
 int main()
 {
-	MersenneTwister rand{};
+	MT rand{};
 
-	for (int i{0}; i < 100; ++i)
-		std::cout << rand.Random(10, 15) << "\n";
+	for (int i{0}; i < 10; ++i)
+		std::cout << rand.Random(1, 10) << "\n";
 
 	return 0;
 }
