@@ -27,27 +27,27 @@ public:
 
 	void Twist()
 	{
-		for (int i{ 0 }; i < n - 1; ++i)
+		for (int i{ 0 }; i < N - 1; ++i)
 		{
-			int x = (_mt[i] & upper_mask) + ((_mt[i + 1 % n]) & lower_mask);
+			int x = (_mt[i] & upper_mask) + ((_mt[i + 1 % N]) & lower_mask);
 			int xA = x >> 1;
 			if (x % 2 != 0)
-				xA = xA ^ a;
-			_mt[i] = _mt[(i + m) % n] ^ xA;
+				xA = xA ^ A;
+			_mt[i] = _mt[(i + M) % N] ^ xA;
 		}
 		_index = 0;
 	}
 
 	int ExtractNumber()
 	{
-		if (_index >= n)
+		if (_index >= N)
 			Twist();
 
 		int y = _mt[_index];
-		y = y ^ ((y >> u) & d);
-		y = y ^ ((y << s) & b);
-		y = y ^ ((y << t) & c);
-		y = y ^ ((y >> l));
+		y = y ^ ((y >> U) & D);
+		y = y ^ ((y << S) & B);
+		y = y ^ ((y << T) & C);
+		y = y ^ ((y >> L));
 
 		_index += 1;
 		return y & 0xFFFFFFFF;
