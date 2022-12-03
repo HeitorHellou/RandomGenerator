@@ -9,20 +9,6 @@ template<typename TypeField, int W, int N, int M, int R, unsigned int A, int U, 
 class MersenneTwister
 {
 private:
-	int w{ 32 };
-	int n{ 624 };
-	int m{ 397 };
-	int r{ 31 };
-	unsigned int a{ 0x9908B0DF };
-	int u{ 11 };
-	unsigned int d{ 0xFFFFFFFF };
-	int s{ 7 };
-	unsigned int b{ 0x9D2C5680 };
-	int t{ 15 };
-	unsigned int c{ 0xEFC60000 };
-	int l{ 18 };
-	int f{ 1812433253 };
-
 	std::array<TypeField, N> _mt{};
 	int _index = N + 1;
 	unsigned long lower_mask{ 0x7FFFFFFF };
